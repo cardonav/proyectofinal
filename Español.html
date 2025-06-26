@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación Avanzada de Español</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: url("lenguaje.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .container {
+            background: rgba(0,0,0,0.7);
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #222;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .question {
+            margin-bottom: 18px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 6px;
+            font-weight: bold;
+        }
+        .menu-btn {
+            display: block;
+            margin: 30px auto 0 auto;
+            padding: 10px 30px;
+            background: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .menu-btn:hover {
+            background: #ca6f1e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Evaluación Avanzada de Español</h1>
+        <form id="quizForm">
+            <div class="question" id="q1">
+                <div>1. ¿Cuál es el modo verbal de la frase: "Si hubiera estudiado, habría aprobado"?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Indicativo</label>
+                    <label><input type="radio" name="q1" value="b"> Subjuntivo</label>
+                    <label><input type="radio" name="q1" value="c"> Imperativo</label>
+                </div>
+                <div class="result" id="r1"></div>
+            </div>
+            <div class="question" id="q2">
+                <div>2. ¿Cuál es el significado correcto de la palabra "aprovechar"?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Descansar</label>
+                    <label><input type="radio" name="q2" value="b"> Sacar beneficio de algo</label>
+                    <label><input type="radio" name="q2" value="c"> Olvidar</label>
+                </div>
+                <div class="result" id="r2"></div>
+            </div>
+            <div class="question" id="q3">
+                <div>3. ¿Cuál es el antónimo de "escaso"?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Abundante</label>
+                    <label><input type="radio" name="q3" value="b"> Pequeño</label>
+                    <label><input type="radio" name="q3" value="c"> Rápido</label>
+                </div>
+                <div class="result" id="r3"></div>
+            </div>
+            <div class="question" id="q4">
+                <div>4. ¿Cuál es la forma correcta del pretérito perfecto de "escribir" para "yo"?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> He escribido</label>
+                    <label><input type="radio" name="q4" value="b"> He escrito</label>
+                    <label><input type="radio" name="q4" value="c"> Escribí</label>
+                </div>
+                <div class="result" id="r4"></div>
+            </div>
+            <div class="question" id="q5">
+                <div>5. ¿Qué tipo de palabra es "rápidamente"?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Adjetivo</label>
+                    <label><input type="radio" name="q5" value="b"> Verbo</label>
+                    <label><input type="radio" name="q5" value="c"> Adverbio</label>
+                </div>
+                <div class="result" id="r5"></div>
+            </div>
+            <button type="button" class="menu-btn" onclick="window.location.href='menu.html'">Volver al menú</button>
+        </form>
+    </div>
+    <script>
+        const respuestas = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'a',
+            q4: 'b',
+            q5: 'c'
+        };
+
+        document.querySelectorAll('input[type=radio]').forEach(input => {
+            input.addEventListener('change', function() {
+                const q = this.name;
+                const resDiv = document.getElementById('r' + q.substring(1));
+                if (this.value === respuestas[q]) {
+                    resDiv.textContent = '¡Correcto!';
+                    resDiv.style.color = '#2ecc71';
+                } else {
+                    resDiv.textContent = 'Incorrecto.';
+                    resDiv.style.color = '#e74c3c';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación Avanzada de Química - Destilación</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('quimica.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            backdrop-filter: blur(2px) brightness(0.7);
+        }
+        .container {
+            background: rgba(0,0,0,0.7);
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .question {
+            margin-bottom: 22px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .menu-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 28px;
+            font-size: 1.1em;
+            background: #2196f3;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .menu-btn:hover {
+            background: #1769aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Evaluación Avanzada: Destilación</h1>
+        <form id="quizForm">
+            <div class="question" id="q1">
+                <div>1. ¿Cuál es el principio fundamental de la destilación?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Separación por diferencias de solubilidad</label>
+                    <label><input type="radio" name="q1" value="b"> Separación por diferencias de punto de ebullición</label>
+                    <label><input type="radio" name="q1" value="c"> Separación por diferencias de densidad</label>
+                </div>
+                <div class="result" id="r1"></div>
+            </div>
+            <div class="question" id="q2">
+                <div>2. ¿Qué componente se recoge primero en una destilación simple?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> El de mayor punto de ebullición</label>
+                    <label><input type="radio" name="q2" value="b"> El de menor punto de ebullición</label>
+                    <label><input type="radio" name="q2" value="c"> El de mayor densidad</label>
+                </div>
+                <div class="result" id="r2"></div>
+            </div>
+            <div class="question" id="q3">
+                <div>3. ¿Cuál es la función del condensador en la destilación?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Calentar la mezcla</label>
+                    <label><input type="radio" name="q3" value="b"> Enfriar y condensar los vapores</label>
+                    <label><input type="radio" name="q3" value="c"> Separar los sólidos</label>
+                </div>
+                <div class="result" id="r3"></div>
+            </div>
+            <div class="question" id="q4">
+                <div>4. ¿Qué ocurre si la mezcla contiene componentes con puntos de ebullición muy cercanos?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> La separación es más eficiente</label>
+                    <label><input type="radio" name="q4" value="b"> La separación es menos eficiente</label>
+                    <label><input type="radio" name="q4" value="c"> No afecta la eficiencia</label>
+                </div>
+                <div class="result" id="r4"></div>
+            </div>
+            <div class="question" id="q5">
+                <div>5. ¿Qué tipo de destilación se recomienda para separar líquidos con puntos de ebullición muy próximos?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Destilación simple</label>
+                    <label><input type="radio" name="q5" value="b"> Destilación fraccionada</label>
+                    <label><input type="radio" name="q5" value="c"> Destilación al vacío</label>
+                </div>
+                <div class="result" id="r5"></div>
+            </div>
+        </form>
+        <button class="menu-btn" onclick="window.location.href='menu.html'">Volver al menú</button>
+    </div>
+    <script>
+        // Respuestas correctas
+        const correctAnswers = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'b',
+            q4: 'b',
+            q5: 'b'
+        };
+
+        // Califica cada pregunta individualmente
+        document.querySelectorAll('input[type=radio]').forEach(input => {
+            input.addEventListener('change', function() {
+                const q = this.name;
+                const resultDiv = document.getElementById('r' + q.substring(1));
+                if (this.value === correctAnswers[q]) {
+                    resultDiv.textContent = '¡Correcto!';
+                    resultDiv.style.color = '#4caf50';
+                } else {
+                    resultDiv.textContent = 'Incorrecto.';
+                    resultDiv.style.color = '#f44336';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
